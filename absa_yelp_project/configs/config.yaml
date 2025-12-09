@@ -1,0 +1,33 @@
+seed: 42
+paths:
+  raw_dir: data/raw
+  interim_dir: data/interim
+  processed_dir: data/processed
+  models_dir: models
+  reports_dir: reports
+  figures_dir: reports/figures
+  metrics_dir: reports/metrics
+
+data:
+  min_reviews: 20000
+  max_reviews: 120000
+  keep_neutral: false
+  test_size: 0.15
+  dev_size: 0.15
+
+aspects:
+  names: [service, food, ambience, pricing]
+  lexicons:
+    service: ["service", "wait", "waiting", "line", "slow", "rude", "polite", "attentive", "friendly", "staff"]
+    food: ["coffee", "latte", "espresso", "cappuccino", "drink", "menu", "croissant", "pastry", "toast", "sandwich", "food"]
+    ambience: ["ambience", "atmosphere", "vibes", "music", "decor", "cozy", "noise", "crowded", "lighting", "seating"]
+    pricing: ["price", "expensive", "overpriced", "cheap", "affordable", "worth", "value", "cost"]
+  window_sentences: 1
+
+transformer:
+  model_name: "distilbert-base-uncased"
+  max_length: 160
+  batch_size: 16
+  lr: 2e-5
+  epochs: 2
+  warmup_ratio: 0.06
